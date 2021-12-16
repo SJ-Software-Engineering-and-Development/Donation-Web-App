@@ -1,0 +1,21 @@
+<!-- register form section starts  -->
+
+<section class="register">
+
+    <form [formGroup]="registrationForm">
+        <h3>register now</h3>
+        <input type="text" name="" placeholder="enter your name" id="" class="box" formControlName="name">
+        <input type="email" name="" placeholder="enter your email" id="" class="box" formControlName="email">
+        <input type="text" name="" placeholder="enter your contact number" id="" class="box" formControlName="contact">
+        <input type="text" name="" placeholder="enter your address" id="" class="box" formControlName="address">
+        <input type="text" name="" placeholder="enter your DOB" id="" class="box" formControlName="dob">
+        <input type="password" name="" placeholder="enter your password" id="" class="box" formControlName="password">
+        <!-- <input type="password" name="" placeholder="re-enter your password" id="" class="box" formControlName="password"> -->
+        <input type="button" (click)="register()"  value="register now" class="btn">
+        <p>already have an account?</p>
+        <a href="login.html" class="btn link">login now</a>
+    </form>
+
+</section>
+
+<!-- register form section ends  -->
