@@ -67,6 +67,10 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  btn_registration():void{
+    this._router.navigate(["registration"]);
+  }
+
   clicksub(){
     this.loginForm.reset();
   }

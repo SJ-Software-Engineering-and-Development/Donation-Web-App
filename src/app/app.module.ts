@@ -15,6 +15,7 @@ import { DonationDashboardComponent } from './components/donation/donation-dashb
 import { AddDonationComponent } from './components/donation/add-donation/add-donation.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { ReviewCatelogComponent } from './components/donation/donation-dashboard/review-catelog/review-catelog.component';
 
 
 
@@ -27,7 +28,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     SlidebarComponent,
     RegistrationComponent,
     DonationDashboardComponent,
-    AddDonationComponent
+    AddDonationComponent,
+    ReviewCatelogComponent
   ],
   imports: [
     AppRoutingModule,

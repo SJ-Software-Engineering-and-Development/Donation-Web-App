@@ -1,5 +1,4 @@
-
-<!-- end document-->
+<!-- 
  <div class="pd1">
     <div class="row">
       <div class="col-4">
@@ -35,4 +34,31 @@
     </div> 
     
   </div>
+ -->
+<div class="row backgroud1">
+  <div class="col-6">
+    <section class="donation_addForm">
+      <div class="row">
+        <div class="wall"></div>
+      </div>
+    </section>
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <section class="donation_addForm">
 
+        <form [formGroup]="create_donationForm">
+            <h3>Add Donation</h3>
+            <input type="text" name="" placeholder="title" id="" class="box" formControlName="title">
+            <input type="text" name="" placeholder="Target Amout" id="" class="box" formControlName="targetAmout">
+            <input type="date" name="" placeholder="Target Date" id="" class="box" formControlName="targetDate">
+            <input type="" name="" placeholder="Categary" id="" class="box" formControlName="category">
+            <input type="text" name="" placeholder="Description" id="" class="box" formControlName="description">
+            <br><br><br>
+            <input type="button" (click)= "submit()"  value="Submit request" class="app-btn">
+            
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

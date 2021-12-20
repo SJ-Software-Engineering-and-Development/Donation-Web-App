@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { registrationService } from 'src/app/services/app/registration/registration.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2'; 
 
 @Component({
   selector: 'app-registration',
@@ -32,12 +34,16 @@ export class RegistrationComponent implements OnInit {
   }
 };
 
+  // selectedFile = null;
+  selectedFile: File | null = null;
+
   constructor(
     private fb: FormBuilder,
     private tokenStorage:TokenStorageService,
     private authService:AuthenticationService,
     private registrationService:registrationService,
-    private _router: Router
+    private _router: Router,
+    private http: HttpClient
   ) { }
   
   createForm() {
@@ -47,6 +53,8 @@ export class RegistrationComponent implements OnInit {
       contact: [''],
       address: [''],
       dob: [''],
+      // image:[''],
+      img:[null],
       password: ['']
     });
   }
@@ -54,18 +62,33 @@ export class RegistrationComponent implements OnInit {
     this.createForm();
   }
 
+  // upload(event: { target: { files: null[]; }; }){
+  //   this.selectedFile = event.target.files[0];
+  // }
+
+  upload(event: any) {
+    // this.selectedFile = event.item(0);
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+      // this.registrationForm.get('profile').setValue(file);
+
+    }
+}
+  
   register(): void {
     
-    this.user.userProfile.fullName = this.registrationForm.value.name;
-    this.user.userProfile.address = this.registrationForm.value.address;
-    this.user.userProfile.contact = this.registrationForm.value.contact;
-    this.user.userProfile.dob = this.registrationForm.value.dob;
-    this.user.userProfile.login.name = this.registrationForm.value.name;
-    this.user.userProfile.login.email = this.registrationForm.value.email;
-    this.user.userProfile.login.password = this.registrationForm.value.password;
-    this.user.userProfile.login.avatar = "wfdsfsfdds";
-
-    this.registrationService.createUser(this.user, 'client').subscribe(
+    var formData: any = new FormData();
+    formData.append("avatar", this.selectedFile);
+    formData.append("fullName", this.registrationForm.value.name);
+    formData.append("address",this.registrationForm.value.address);
+    formData.append("contact", this.registrationForm.value.contact);
+    formData.append("dob", this.registrationForm.value.dob);
+    formData.append("name", this.registrationForm.value.name);
+    formData.append("email", this.registrationForm.value.email);
+    formData.append("password", this.registrationForm.value.password);
+    // this.user.userProfile.login.avatar = 
+   
+    this.registrationService.createUser(formData, 'client').subscribe(
     {
         next: (data) => {
           console.log(data);
@@ -73,12 +96,30 @@ export class RegistrationComponent implements OnInit {
 
         error: (err) => {
           // this.errorMessage = 'Invalid Credentials!'; 
+          Swal.fire({  
+            icon: 'error',  
+            title: 'Oops...',  
+            text: "All fields are required!",  
+            footer: '<a href>Why do I have this issue?</a>'  
+          })  
+
           console.log(err);
         },
 
-        complete: () => console.info('complete') 
+        complete: () => {console.info('complete');
+      this.registrationForm.reset();
+      
+      Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
+      setTimeout(() => {
+        this._router.navigate(["login"]);
+      }, 1500);
+    } 
     }
     );
+  }
+
+  btn_login():void{
+    this._router.navigate(["login"]);
   }
 
 }

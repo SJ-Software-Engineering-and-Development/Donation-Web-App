@@ -1,0 +1,39 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+
+<div class="row">
+  <div class="product--blue" *ngFor="let review of reviews">
+    <div class="product_inner">
+      <img
+        src="https://pissukanna.com/media/2021/07/WhatsApp-Image-2021-10-13-at-4.07.21-PM-1-500x496.jpeg"
+        alt="Avatar"
+        style="width: 100%"
+      />
+      <div class="card-text">
+        <span class="btn-group">
+          <i class="fa fa-comments"></i>
+          <h6 class="name">{{ review.name }}</h6>
+        </span>
+        <p class="date">{{ review.date }}</p>
+
+        <p [ngClass]="{ limitTextHeight: review.isReadMore }">
+          {{ review.review.length > 10 }} {{ review.review }}
+          <span *ngIf="review.isReadMore">...</span>
+        </p>
+        <p
+          *ngIf="review.review.length > 30"
+          (click)="showText(review.id)"
+          style="color: white; cursor: pointer"
+          href="#"
+          class="date"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ review.isReadMore ? "Read More" : "Read Less" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
