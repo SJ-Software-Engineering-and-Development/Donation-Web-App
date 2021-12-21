@@ -3,103 +3,99 @@
   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
   rel="stylesheet"
 />
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to Donation <span>Service</span></h1>
-      <h2>We are providing a platform to donate people</h2>
-      <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
+<section
+  id="hero"
+  class="d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="container text-center text-md-left" data-aos="fade-up">
+    <h1>Welcome to Donation <span>Service</span></h1>
+    <h2>We are providing a platform to donate people</h2>
+    <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
+  </div>
+</section>
+<!-- End Hero -->
+
+<!-- ======= What We Do Section ======= -->
+<section id="what-we-do" class="what-we-do">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="what-we-do-title">What We Do</h2>
+      <p id="what-we-do-p">
+        Magnam dolores commodi suscipit consequatur ex aliquid
+      </p>
     </div>
-  </section><!-- End Hero -->
 
-      <!-- ======= What We Do Section ======= -->
-      <section id="what-we-do" class="what-we-do">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2 id="what-we-do-title">What We Do</h2>
-            <p id="what-we-do-p">Magnam dolores commodi suscipit consequatur ex aliquid</p>
-          </div>
-  
-          <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-cloud"></i></div>
-                <h4><a href="">Provide Donation</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-              <div class="icon-box">
-                <div class="icon"><i class="fa fa-file"></i></div>
-                <h4><a href="">Ask For Donation</a></h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-coffee"></i></div>
-                <h4><a href="">Magni Dolores</a></h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-              </div>
-            </div>
-  
-          </div>
-  
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-cloud"></i></div>
+          <h4><a href="">Provide Donation</a></h4>
+          <p>
+            Voluptatum deleniti atque corrupti quos dolores et quas molestias
+            excepturi
+          </p>
         </div>
-      </section><!-- End What We Do Section -->
+      </div>
 
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fa fa-file"></i></div>
+          <h4><a href="">Ask For Donation</a></h4>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore
+          </p>
+        </div>
+      </div>
 
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-coffee"></i></div>
+          <h4><a href="">Magni Dolores</a></h4>
+          <p>
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End What We Do Section -->
 
 <!-- home section starts  -->
 
 <section class="home">
-
-    <div class="swiper home-slider">
-
+  <div class="swiper home-slider">
+    <swiper class="swiper-wrapper" [navigation]="true" class="mySwiper">
+      <ng-template swiperSlide *ngFor="let item of fundList">
         <div class="swiper-wrapper">
-
-        <div class="swiper-slide slide">
+          <div class="swiper-slide slide">
             <div class="image">
-                <img src="../../../assets/images/home-img-1.jpg" alt="">
+              <img
+                src="http://localhost:8081/{{ item.category.image }}"
+                alt=""
+              />
             </div>
             <div class="content">
-                <span>upto 50% off</span>
-                <h3>smartphones</h3>
-                <a href="#" class="btn">shop now</a>
+              <h3>
+                {{ item.title }}
+              </h3>
+              <div>
+                <p>
+                  {{ item.description }}
+                </p>
+              </div>
+              <a href="#" class="btn"
+                ><i class="fas fa-hands-helping mr-2"></i>Doante now</a
+              >
             </div>
+          </div>
         </div>
-
-        <div class="swiper-slide slide">
-            <div class="image">
-                <img src="../../../assets/images/home-img-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <span>upto 50% off</span>
-                <h3>smartwatch</h3>
-                <a href="#" class="btn">shop now</a>
-            </div>
-        </div>
-
-        <div class="swiper-slide slide">
-            <div class="image">
-                <img src="../../../assets/images/home-img-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <span>upto 50% off</span>
-                <h3>headphones</h3>
-                <a href="#" class="btn">shop now</a>
-            </div>
-        </div>
-
-        </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-
-    </div>
-
+      </ng-template>
+    </swiper>
+  </div>
+  <div class="swiper home-slider"></div>
 </section>
 
 <!-- home section ends -->
@@ -107,35 +103,31 @@
 <!-- banner section starts  -->
 
 <section class="banner">
+  <div class="box-container">
+    <a href="#" class="box">
+      <img src="../../../assets/images/banner-1.jpg" alt="" />
+      <div class="content">
+        <span>special offer</span>
+        <h3>upto 50% off</h3>
+      </div>
+    </a>
 
-    <div class="box-container">
+    <a href="#" class="box">
+      <img src="../../../assets/images/banner-2.jpg" alt="" />
+      <div class="content">
+        <span>special offer</span>
+        <h3>upto 50% off</h3>
+      </div>
+    </a>
 
-        <a href="#" class="box">
-            <img src="../../../assets/images/banner-1.jpg" alt="">
-            <div class="content">
-                <span>special offer</span>
-                <h3>upto 50% off</h3>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="../../../assets/images/banner-2.jpg" alt="">
-            <div class="content">
-                <span>special offer</span>
-                <h3>upto 50% off</h3>
-            </div>
-        </a>
-
-        <a href="#" class="box">
-            <img src="../../../assets/images/banner-3.jpg" alt="">
-            <div class="content">
-                <span>special offer</span>
-                <h3>upto 50% off</h3>
-            </div>
-        </a>
-        
-    </div>
-
+    <a href="#" class="box">
+      <img src="../../../assets/images/banner-3.jpg" alt="" />
+      <div class="content">
+        <span>special offer</span>
+        <h3>upto 50% off</h3>
+      </div>
+    </a>
+  </div>
 </section>
 
 <!-- banner section ends -->
@@ -143,128 +135,170 @@
 <!-- arrivals section starts  -->
 
 <section class="arrivals">
+  <h1 class="heading">new <span>arrivals</span></h1>
 
-    <h1 class="heading"> new <span>arrivals</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-1.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-1-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>HD television</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
+  <div class="box-container">
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-1.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-1-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>HD television</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
         </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-2.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-2-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>lenovo laptop</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-3.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-3-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>new smartphone</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-4.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-4-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>new printer</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-5.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-5-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>new headphones</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-        </div>
-        
-        <div class="box">
-            <div class="image">
-                <img src="../../../assets/images/arrival-6.jpg" class="main-img" alt="">
-                <img src="../../../assets/images/arrival-6-hover.jpg" class="hover-img" alt="">
-            </div>
-            <div class="content">
-                <h3>new speakers</h3>
-                <div class="price"> $249.99 <span>$399.99</span> </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-        </div>
-        
+      </div>
     </div>
 
-</section>
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-2.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-2-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>lenovo laptop</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
 
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-3.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-3-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>new smartphone</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-4.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-4-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>new printer</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-5.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-5-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>new headphones</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img
+          src="../../../assets/images/arrival-6.jpg"
+          class="main-img"
+          alt=""
+        />
+        <img
+          src="../../../assets/images/arrival-6-hover.jpg"
+          class="hover-img"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>new speakers</h3>
+        <div class="price">$249.99 <span>$399.99</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="arrivals">
-    <h1 class="heading"> new <span>Reviews</span> </h1>
-    <app-review-catelog [reviews] = "reviewsList"></app-review-catelog>
+  <h1 class="heading">new <span>Reviews</span></h1>
+  <app-review-catelog [reviews]="reviewsList"></app-review-catelog>
 </section>
-
 
 <!-- arrivals section ends -->

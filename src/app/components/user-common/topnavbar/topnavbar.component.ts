@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnavbarComponent implements OnInit {
 
+
+  active:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+  //Value came from parent component
+  toggleClass(value: boolean):void{
+   this.active = value;
   }
 
 }

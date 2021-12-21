@@ -16,8 +16,8 @@ import { AddDonationComponent } from './components/donation/add-donation/add-don
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReviewCatelogComponent } from './components/donation/donation-dashboard/review-catelog/review-catelog.component';
-
-
+import { RouterModule } from '@angular/router';
+import { SwiperModule } from "swiper/angular";
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { ReviewCatelogComponent } from './components/donation/donation-dashboard
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
+    SwiperModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

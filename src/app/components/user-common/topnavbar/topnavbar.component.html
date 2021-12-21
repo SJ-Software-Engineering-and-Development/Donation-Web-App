@@ -1,19 +1,27 @@
-<!-- <p>topnavbar works!</p> -->
 <div class="header">
+  <a
+    [routerLink]="['/donation-dashboard']"
+    routerLinkActive="router-link-active"
+    class="logo"
+  >
+    <i class="fas fa-store"></i> Donation
+  </a>
 
-    <a href="home.html" class="logo"> <i class="fas fa-store"></i> shopie </a>
+  <form action="" class="search-form">
+    <input type="search" id="search-box" placeholder="search here..." />
+    <label for="search-box" class="fas fa-search"></label>
+  </form>
 
-    <form action="" class="search-form">
-        <input type="search" id="search-box" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
-
-    <div class="icons">
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <div id="search-btn" class="fas fa-search"></div>
-        <a href="login.html" class="fas fa-user"></a>
-        <a href="#" class="fas fa-heart"></a>
-        <a href="cart.html" class="fas fa-shopping-cart"></a>
-    </div>
-
+  <div class="icons">
+    <div id="menu-btn" (click)="toggleClass(true)" class="fas fa-bars"></div>
+    <div id="search-btn" class="fas fa-search"></div>
+    <a href="login.html" class="fas fa-user"></a>
+    <a href="#" class="fas fa-heart"></a>
+    <a href="cart.html" class="fas fa-shopping-cart"></a>
+  </div>
 </div>
+
+<app-slidebar
+  [isAc]="active"
+  (sliderEvent)="toggleClass($event)"
+></app-slidebar>
