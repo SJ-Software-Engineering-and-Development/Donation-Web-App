@@ -19,6 +19,7 @@ import { ReviewCatelogComponent } from './components/donation/donation-dashboard
 import { RouterModule } from '@angular/router';
 import { SwiperModule } from "swiper/angular";
 import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
+import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ViewFundComponent } from './components/donation/view-fund/view-fund.com
     DonationDashboardComponent,
     AddDonationComponent,
     ReviewCatelogComponent,
-    ViewFundComponent
+    ViewFundComponent,
+    ThankPageComponent
   ],
   imports: [
     AppRoutingModule,
