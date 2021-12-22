@@ -19,4 +19,8 @@ export class fundService {
     return this.http.get(`${API_URL}/${status}`);
     }
 
+    getById(id:string): Observable<any>{
+      return this.http.get(`${API_URL}/getByid/${id}`);
+    }
+
 }

@@ -68,7 +68,7 @@
 <section class="home">
   <div class="swiper home-slider">
     <swiper class="swiper-wrapper" [navigation]="true" class="mySwiper">
-      <ng-template swiperSlide *ngFor="let item of fundList">
+      <ng-template swiperSlide *ngFor="let item of fundList | slice: 0:5">
         <div class="swiper-wrapper">
           <div class="swiper-slide slide">
             <div class="image">
@@ -79,16 +79,16 @@
             </div>
             <div class="content">
               <h3>
-                {{ item.title }}
+                {{ item?.title }}
               </h3>
               <div>
-                <p>
-                  {{ item.description }}
+                <p style="width: align-self">
+                  {{ item?.description }}
                 </p>
               </div>
-              <a href="#" class="btn"
-                ><i class="fas fa-hands-helping mr-2"></i>Doante now</a
-              >
+              <button (click)="donateNow(item.id)" class="btn">
+                <i class="fas fa-hands-helping mr-2"></i>Doante now
+              </button>
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ isUserLoggedIn:boolean=false;
   pupulateUserCard():void{
     this.loggedUser = JSON.parse(sessionStorage.getItem('auth-user') || '{}');
     
-    if(this.loggedUser=={})
+    if(this.authService.isUserLoggedIn())
     {
       this.avatar= `http://localhost:8081/${this.loggedUser.avatar}`;
     }else{

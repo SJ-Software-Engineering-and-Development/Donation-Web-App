@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { fundService } from 'src/app/services/app/fund.service';
-
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper";
 // install Swiper modules
 SwiperCore.use([Navigation]);
-
 
 @Component({
   selector: 'app-donation-dashboard',
@@ -84,10 +84,31 @@ export class DonationDashboardComponent implements OnInit {
     "isReadMore": true
   }];
 
-  fundList: any =[];
+  fundList=[
+    {
+        "id": "",
+        "title": "",
+        "description": "",
+        "targetAmount": "",
+        "targetDate": "",
+        "createdDate": "",
+        "status": "",
+        "userProfileId": "",
+        "categoryId": "",
+        "category": {
+            "id": "",
+            "name": "",
+            "description": "",
+            "image": "",
+            "status": ""
+        }
+    }
+];
 
   constructor(
-    private fundService: fundService
+    private fundService: fundService,
+    private router:Router,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -113,4 +134,10 @@ export class DonationDashboardComponent implements OnInit {
       }
     })
   }
-}
+
+  donateNow(id:string):void{
+    this.authService.isUserLoggedIn()?
+      this.router.navigate(['view-fund',id]):
+      this.router.navigate(['login']);
+  }
+} 

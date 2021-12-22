@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddDonationComponent } from './components/donation/add-donation/add-donation.component';
 import { DonationDashboardComponent } from './components/donation/donation-dashboard/donation-dashboard.component';
+import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 import { LoginComponent } from './components/user-common/login/login.component';
 import { RegistrationComponent } from './components/user-common/registration/registration.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'login', component:LoginComponent},
   { path: 'registration', component:RegistrationComponent},
   { path: 'donation-dashboard', component:DonationDashboardComponent},
-  { path: 'add-donation', component:AddDonationComponent}
+  { path: 'add-donation', component:AddDonationComponent},
+  { path: 'view-fund/:id', component:ViewFundComponent}
 //   {
 //     path: 'donation',
 //     canActivate:[AuthGuardService],

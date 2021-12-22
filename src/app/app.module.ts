@@ -18,6 +18,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReviewCatelogComponent } from './components/donation/donation-dashboard/review-catelog/review-catelog.component';
 import { RouterModule } from '@angular/router';
 import { SwiperModule } from "swiper/angular";
+import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SwiperModule } from "swiper/angular";
     RegistrationComponent,
     DonationDashboardComponent,
     AddDonationComponent,
-    ReviewCatelogComponent
+    ReviewCatelogComponent,
+    ViewFundComponent
   ],
   imports: [
     AppRoutingModule,
