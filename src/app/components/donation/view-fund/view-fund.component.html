@@ -151,48 +151,90 @@
           <div class="card">
             <div class="card-header text-center">Donate now</div>
             <div class="card-body" style="font-size: medium">
-              <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+              <form [formGroup]="frmDonate" (ngSubmit)="submitDonate()">
+                <div class="form-group mt-4">
+                  <label for="exampleInputEmail1">Amount (Rs.)</label>
                   <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    type="text"
+                    class="form-control form-control-lg"
+                    [ngClass]="{
+                      'is-invalid':
+                        frmDonate.controls['amount'].invalid &&
+                        (frmDonate.controls['amount'].dirty ||
+                          frmDonate.controls['amount'].touched)
+                    }"
+                    id="amount"
+                    placeholder="Enter amount"
+                    formControlName="amount"
                   />
-                  <small id="emailHelp" class="form-text text-muted"
-                    >We'll never share your email with anyone else.</small
+                  <div
+                    *ngIf="
+                      frmDonate.controls['amount'].invalid &&
+                      (frmDonate.controls['amount'].dirty ||
+                        frmDonate.controls['amount'].touched)
+                    "
+                    class="alert"
                   >
+                    <small
+                      *ngIf="frmDonate.controls['amount'].errors?.['required']"
+                      class="text-danger"
+                      >Please enter amount</small
+                    >
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
+
+                <div class="custom-file mt-4">
                   <input
-                    type="password"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password"
+                    type="file"
+                    (change)="upload($event)"
+                    class="custom-file-input"
+                    id="image"
+                    formControlName="image"
                   />
+                  <label class="custom-file-label" for="image">
+                    {{
+                      selectedFile?.name || "Upload image (optional)..."
+                    }}</label
+                  >
+                  <div class="invalid-feedback">
+                    Example invalid custom file feedback
+                  </div>
                 </div>
-                <div class="form-check">
+
+                <div class="form-group mt-4">
+                  <label for="exampleInputPassword1">Your words</label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    formControlName="details"
+                  ></textarea>
+                </div>
+                <div class="form-check mt-4">
                   <input
                     type="checkbox"
                     class="form-check-input"
-                    id="exampleCheck1"
+                    id="isPublic"
+                    formControlName="isPublic"
                   />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Visible to others</label
+                  <label class="form-check-label ml-2" for="isPublic">
+                    Visible to others</label
                   >
                 </div>
+                <div class="form-group">
+                  <button
+                    [disabled]="frmDonate.status !== 'VALID'"
+                    class="btn btn-success mt-5"
+                  >
+                    <i class="fas fa-hands-helping mr-2"></i>Doante now
+                  </button>
+                </div>
+                <!--To check form data <p>myForm value: {{ frmDonate.value | json }}</p> -->
               </form>
             </div>
           </div>
         </div>
       </div>
-
-      <button (click)="donateNow()" class="btn btn-success mt-5">
-        <i class="fas fa-hands-helping mr-2"></i>Doante now
-      </button>
     </div>
   </div>
 

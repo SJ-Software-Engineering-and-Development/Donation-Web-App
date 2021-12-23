@@ -43,7 +43,7 @@ import { ThankPageComponent } from './components/donation/thank-page/thank-page.
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
-    SwiperModule
+    SwiperModule, 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
