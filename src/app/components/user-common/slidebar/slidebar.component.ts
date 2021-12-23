@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
+import { TokenStorageService } from 'src/app/services/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-slidebar',

@@ -8,7 +8,7 @@ import { FooterComponent } from './components/user-common/footer/footer.componen
 import { LoginComponent } from './components/user-common/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptorService } from './services/token-interceptor.service';
+import { TokenInterceptorService } from './services/app/auth/token-interceptor.service';
 import { SlidebarComponent } from './components/user-common/slidebar/slidebar.component';
 import { RegistrationComponent } from './components/user-common/registration/registration.component';
 import { DonationDashboardComponent } from './components/donation/donation-dashboard/donation-dashboard.component';

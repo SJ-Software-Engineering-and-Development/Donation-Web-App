@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fundService } from 'src/app/services/app/fund.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import * as dayjs from 'dayjs';
 import Swal from 'sweetalert2'; 

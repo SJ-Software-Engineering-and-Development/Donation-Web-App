@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { fundService } from 'src/app/services/app/fund.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper";

@@ -6,7 +6,7 @@ import { ThankPageComponent } from './components/donation/thank-page/thank-page.
 import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 import { LoginComponent } from './components/user-common/login/login.component';
 import { RegistrationComponent } from './components/user-common/registration/registration.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/app/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
