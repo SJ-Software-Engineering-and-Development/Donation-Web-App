@@ -22,11 +22,14 @@
     "@angular/router": "~13.0.0",
     "bootstrap": "^4.5.0",
     "bootstrap-icons": "^1.7.2",
+    "dayjs": "^1.10.7",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "payhere-js-sdk": "^1.0.1",
     "propper": "^1.0.4",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.3.0",
+    "swiper": "^7.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -42,6 +45,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "payhere-js-sdk": "^1.0.1",
     "typescript": "~4.4.3"
   }
 }

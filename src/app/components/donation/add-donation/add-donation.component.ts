@@ -4,9 +4,9 @@ import {FormBuilder,FormControl, FormGroup, FormGroupDirective, NgForm, Validato
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
 import { fundService } from 'src/app/services/app/fund.service';
-import { registrationService } from 'src/app/services/app/registration/registration.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { registrationService } from 'src/app/services/app/auth/registration.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
+import { TokenStorageService } from 'src/app/services/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-add-donation',

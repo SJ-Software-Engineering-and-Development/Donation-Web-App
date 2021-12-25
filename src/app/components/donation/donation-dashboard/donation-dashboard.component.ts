@@ -1,9 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { fundService } from 'src/app/services/app/fund.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
+
+// import Swiper core and required modules
+import SwiperCore, { Navigation } from "swiper";
+// install Swiper modules
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-donation-dashboard',
   templateUrl: './donation-dashboard.component.html',
-  styleUrls: ['./donation-dashboard.component.scss']
+  styleUrls: ['./donation-dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DonationDashboardComponent implements OnInit {
 
@@ -75,13 +84,60 @@ export class DonationDashboardComponent implements OnInit {
     "isReadMore": true
   }];
 
-  constructor() { }
+  fundList=[
+    {
+        "id": "",
+        "title": "",
+        "description": "",
+        "targetAmount": "",
+        "targetDate": "",
+        "createdDate": "",
+        "status": "",
+        "userProfileId": "",
+        "categoryId": "",
+        "category": {
+            "id": "",
+            "name": "",
+            "description": "",
+            "image": "",
+            "status": ""
+        }
+    }
+];
+
+  constructor(
+    private fundService: fundService,
+    private router:Router,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
+    this.getFunds();
+
   }
 
   showText(reviewid:number) {
     let index = this.reviewsList.findIndex((obj:any) => obj.id ==reviewid );
     this.reviewsList[index].isReadMore = !this.reviewsList[index].isReadMore;
   }
-}
+
+  getFunds():void{
+    this.fundService.getByStatus("active").subscribe({
+      next:(data) =>{
+        this.fundList = data;
+      },
+      error:(err) =>{
+
+      },
+      complete:()=>{
+        console.log("funds list get success");
+      }
+    })
+  }
+
+  donateNow(id:string):void{
+    this.authService.isUserLoggedIn()?
+      this.router.navigate(['view-fund',id]):
+      this.router.navigate(['login']);
+  }
+} 

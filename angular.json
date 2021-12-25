@@ -36,13 +36,14 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/sweetalert2/src/sweetalert2.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/sweetalert2/src/sweetalert2.scss"
+              "./src/assets/css/style.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js", 
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./src/assets/js/script.js"
             ]
           },
           "configurations": {

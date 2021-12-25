@@ -13,5 +13,14 @@ export class fundService {
 
     create(data: any): Observable<any> {
     return this.http.post(API_URL, data);
-  }
+    }
+
+    getByStatus(status: any): Observable<any> {
+    return this.http.get(`${API_URL}/${status}`);
+    }
+
+    getById(id:string): Observable<any>{
+      return this.http.get(`${API_URL}/getByid/${id}`);
+    }
+
 }

@@ -1,20 +1,42 @@
 <!-- login form section starts  -->
 
 <section class="login">
-
-    <form [formGroup]="loginForm">
-        <h3>login now</h3>
-        <input type="email" name="" placeholder="enter your email" id="" class="box" formControlName="username">
-        <input type="password" name="" placeholder="enter your password" id="" class="box" formControlName="password">
-        <div class="remember">
-            <input type="checkbox" name="" id="remember-me">
-            <label for="remember-me"> remember me </label>
-        </div>
-        <input type="button" (click)="onSubmit()" value="login now" class="app-btn">
-        <p>don't have an account?</p>
-        <input type="button" (click)="btn_registration()" value="register now" class="app-btn link">
-    </form>
-
+  <form [formGroup]="loginForm">
+    <h3>login now</h3>
+    <input
+      type="email"
+      name=""
+      placeholder="enter your email"
+      id="email"
+      class="box"
+      formControlName="username"
+    />
+    <input
+      type="password"
+      name=""
+      placeholder="enter your password"
+      id="password"
+      class="box"
+      formControlName="password"
+    />
+    <div class="remember">
+      <input type="checkbox" name="" id="remember-me" />
+      <label for="remember-me"> remember me </label>
+    </div>
+    <input
+      type="button"
+      (click)="onSubmit()"
+      value="login now"
+      class="app-btn"
+    />
+    <p>don't have an account?</p>
+    <input
+      type="button"
+      (click)="btn_registration()"
+      value="register now"
+      class="app-btn link"
+    />
+  </form>
 </section>
 
 <!-- login form section ends  -->

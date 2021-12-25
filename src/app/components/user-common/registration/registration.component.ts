@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { registrationService } from 'src/app/services/app/registration/registration.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
+import { registrationService } from 'src/app/services/app/auth/registration.service';
+import { TokenStorageService } from 'src/app/services/app/auth/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2'; 
 

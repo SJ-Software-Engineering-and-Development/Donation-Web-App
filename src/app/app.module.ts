@@ -8,7 +8,7 @@ import { FooterComponent } from './components/user-common/footer/footer.componen
 import { LoginComponent } from './components/user-common/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptorService } from './services/token-interceptor.service';
+import { TokenInterceptorService } from './services/app/auth/token-interceptor.service';
 import { SlidebarComponent } from './components/user-common/slidebar/slidebar.component';
 import { RegistrationComponent } from './components/user-common/registration/registration.component';
 import { DonationDashboardComponent } from './components/donation/donation-dashboard/donation-dashboard.component';
@@ -16,8 +16,10 @@ import { AddDonationComponent } from './components/donation/add-donation/add-don
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReviewCatelogComponent } from './components/donation/donation-dashboard/review-catelog/review-catelog.component';
-
-
+import { RouterModule } from '@angular/router';
+import { SwiperModule } from "swiper/angular";
+import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
+import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ReviewCatelogComponent } from './components/donation/donation-dashboard
     RegistrationComponent,
     DonationDashboardComponent,
     AddDonationComponent,
-    ReviewCatelogComponent
+    ReviewCatelogComponent,
+    ViewFundComponent,
+    ThankPageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -39,6 +43,7 @@ import { ReviewCatelogComponent } from './components/donation/donation-dashboard
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
+    SwiperModule, 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

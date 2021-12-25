@@ -29,7 +29,7 @@ export class AuthenticationService {
 
   logout(email:string): Observable<any> {
     return this.http.post(AUTH_API+ 'users/signout' , {
-      email: 'sanjaya@domain.com'
+      email: email
     });
   }
 
@@ -39,7 +39,7 @@ export class AuthenticationService {
     return !(user === null)
   }
 
-  logOut(){
-    sessionStorage.removeItem('user')
-  }
+  // logOut(){
+  //   sessionStorage.removeItem('user')
+  // }
 }
