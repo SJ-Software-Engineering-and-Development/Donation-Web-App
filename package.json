@@ -25,6 +25,7 @@
     "dayjs": "^1.10.7",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "ngx-pagination": "^5.1.1",
     "payhere-js-sdk": "^1.0.1",
     "propper": "^1.0.4",
     "rxjs": "~7.4.0",

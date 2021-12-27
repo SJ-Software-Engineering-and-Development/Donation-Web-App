@@ -21,6 +21,7 @@ import { SwiperModule } from "swiper/angular";
 import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
 import { MyFundComponent } from './components/donation/my-fund/my-fund.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MyFundComponent } from './components/donation/my-fund/my-fund.component
     MatInputModule,
     MatFormFieldModule,
     SwiperModule, 
+    NgxPaginationModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
