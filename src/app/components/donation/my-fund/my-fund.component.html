@@ -1,0 +1,224 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<!-- payhere SDK : https://support.payhere.lk/api-&-mobile-sdk/payhere-javascript -->
+<!-- <script
+  type="text/javascript"
+  src="https://www.payhere.lk/lib/payhere.js"
+></script> -->
+
+<!-- OR Node version is available-->
+
+<!-- Docs-->
+<!-- https://support.payhere.lk/api-&-mobile-sdk/payhere-reactnative -->
+<!-- Node Package : payhere-js-sdk -->
+<!-- cmd          : yarn add payhere-js-sdk  (npm version not working, but yarn working)-->
+<!-- Docs         : https://yarnpkg.com/package/payhere-js-sdk#readme -->
+
+<section class="shopping-cart">
+  <div class="cart-total">
+    <div class="fundUser">
+      <img src="{{ avatar }}" alt="" />
+      <h3 style="margin-bottom: 0px">{{ user.name }}</h3>
+      <h5 style="margin-top: 0%">{{ user.email}}</h5>
+    </div>
+    <h1 class="heading" style="margin-bottom: 1rem; margin-top: 1rem">
+      <!-- {{ fund?.title }} -->
+    </h1>
+    <p style="text-align: center; width: align-self; margin-right: 12px">
+      <!-- {{ fund?.description }} -->
+    </p>
+    <div class="details" style="margin-top: 3rem">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <h5
+                style="font-size: medium; font-weight: bold"
+                class="card-title"
+              >
+                <i class="fas fa-bars mr-2"></i> Category
+              </h5>
+              <p class="card-text">
+                <!-- {{ fund.category?.name }} <br />
+                {{ fund.category?.description }} -->
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <h5
+                style="font-size: medium; font-weight: bold"
+                class="card-title"
+              >
+                <i class="fas fa-history mr-2"></i> Days left
+              </h5>
+              <p class="card-text">
+                <!-- {{ daysLeft }} -->
+              </p>
+              <p class="card-text">
+                <!-- {{ fund.userProfile?.fullName }} expect to complete this fund at
+                {{ fund?.targetDate }} -->
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <div>
+                <h5
+                  style="font-size: medium; font-weight: bold"
+                  class="card-title"
+                >
+                  <i class="fas fa-hand-holding-usd mr-2"></i>Target Amount
+                </h5>
+                <!-- <p class="card-text text-info">Rs. {{ fund.targetAmount }}</p> -->
+              </div>
+              <div class="mt-4">
+                <h5
+                  style="font-size: medium; font-weight: bold"
+                  class="card-title"
+                >
+                  <i class="fas fa-users mr-2"></i> Total Donations
+                </h5>
+                <p class="card-text">
+                  <!-- {{ fund.userProfile?.fullName }} has received
+                  {{ totalDonations }} donations -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header text-center">My Funds</div>
+            <div class="card-body">
+              <div class="row">
+              
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Target Amount</th>
+                        <th scope="col">Target Date</th>
+                        <th scope="col">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                      <tr *ngFor = "let item of funds">
+                        <!-- <th scope="row">1</th> -->
+                        <td>{{item.title}}</td>
+                        <ng-container [ngSwitch]="item.status">
+                            <!-- the same view can be shown in more than one case -->
+                            <td *ngSwitchCase="'active'" class="text-info">{{item.status}}</td>
+                            <td *ngSwitchCase="'pending'" class="text-warning">{{item.status}}</td>
+                          
+                            <!--default case when there are no matches -->
+                            <td *ngSwitchDefault>...</td>
+                        </ng-container>
+                        <td>{{item.targetAmount}}</td>
+                        <td>{{item.targetDate}}</td>
+                        <td>{{item.description}}</td>
+                      </tr>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+ 
+
+  <div class="box-container" style="margin-top: 60px">
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-1.jpg" alt="" />
+      <div class="content">
+        <h3>smartphone</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-2.jpg" alt="" />
+      <div class="content">
+        <h3>camera</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-3.jpg" alt="" />
+      <div class="content">
+        <h3>television</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-4.jpg" alt="" />
+      <div class="content">
+        <h3>speaker</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-6.jpg" alt="" />
+      <div class="content">
+        <h3>smartwatch</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="images/product-7.jpg" alt="" />
+      <div class="content">
+        <h3>headphone</h3>
+        <form action="">
+          <span>quantity : </span>
+          <input type="number" name="" value="1" id="" />
+        </form>
+        <div class="price">$249.99 <span>$399.99</span></div>
+      </div>
+    </div>
+  </div>
+</section>

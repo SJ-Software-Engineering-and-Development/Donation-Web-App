@@ -7,22 +7,20 @@ const API_URL = 'http://localhost:8081/api/funds';
 @Injectable({
   providedIn: 'root'
 })
-export class fundService {
+export class myfundService {
 
   constructor(private http:HttpClient) { }
 
-    create(data: any): Observable<any> {
-    return this.http.post(API_URL, data);
-    }
+    // create(data: any): Observable<any> {
+    // return this.http.post(API_URL, data);
+    // }
 
-    getByStatus(status: any): Observable<any> {
-    return this.http.get(`${API_URL}/${status}`);
-    }
+    // getByStatus(status: any): Observable<any> {
+    // return this.http.get(`${API_URL}/${status}`);
+    // }
 
     getById(id:string): Observable<any>{
       return this.http.get(`${API_URL}/getByid/${id}`);
     }
-    getMyfunds(id:string): Observable<any>{
-      return this.http.get(`${API_URL}/getMyFunds/${id}`);
-    }
+
 }

@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { SwiperModule } from "swiper/angular";
 import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
+import { MyFundComponent } from './components/donation/my-fund/my-fund.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ThankPageComponent } from './components/donation/thank-page/thank-page.
     AddDonationComponent,
     ReviewCatelogComponent,
     ViewFundComponent,
-    ThankPageComponent
+    ThankPageComponent,
+    MyFundComponent
   ],
   imports: [
     AppRoutingModule,
