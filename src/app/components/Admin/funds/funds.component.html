@@ -1,0 +1,101 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<section class="shopping-cart">
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" (click) = "filterFunds('active')" class="btn btn-success">Active</button>
+                <button type="button" (click) = "filterFunds('pending')" class="btn btn-warning">Pending</button>
+                <button type="button" (click) = "filterFunds('suspend')" class="btn btn-danger">Suspended</button>
+            </div>
+        </div> 
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header text-center"><b>Funds</b></div>
+            <div class="card-body">
+              <div class="row">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                    
+                      <th scope="col">Title</th>
+                      <th scope="col">Target Amount</th>
+                      <th scope="col">Target Date</th>
+                      <th scope="col">Create Date</th>
+                      <th scope="col">Status</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="
+                    let item of funds
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          }
+                  "
+                      
+                    >
+                     
+                      <td>{{item.title}}</td>                     
+                      <td>{{item.targetAmount}}</td>
+                      <td>{{item.targetDate}}</td>
+                      <td>{{item.createdDate}}</td>
+                      <ng-container [ngSwitch]="item.status">
+                        <!-- the same view can be shown in more than one case -->
+                        <td *ngSwitchCase="'active'" class="text-info">
+                          {{ item.status }}
+                        </td>
+                        <td *ngSwitchCase="'pending'" class="text-warning">
+                          {{ item.status }}
+                        </td>
+                        <td *ngSwitchCase="'suspend'" class="text-danger">
+                          {{ item.status }}
+                        </td>
+                      </ng-container>
+                      <ng-container [ngSwitch]="item.status">
+                        <!-- the same view can be shown in more than one case -->
+                        <td *ngSwitchCase="'active'" class="text-info">
+                          <span style="font-size: 20px; color: rgb(39, 121, 7);">
+                            <i class="fas fa-edit" (click) = "action(item.id, 'suspend')"></i>
+                        </span>
+                        </td>
+                        <td *ngSwitchCase="'pending'" class="text-info">
+                          <span style="font-size: 20px; color: rgb(39, 121, 7);">
+                            <i class="fas fa-edit" (click) = "action(item.id, 'active')"></i>
+                        </span>
+                        <span style="font-size: 20px; color: rgb(172, 8, 8);" class="ml-2">
+                          <i class="fas fa-edit" (click) = "action(item.id, 'suspend')"></i>
+                      </span>
+                        </td>
+                        <td *ngSwitchCase="'suspend'" class="text-info">
+                          <span style="font-size: 20px; color: rgb(39, 121, 7);">
+                            <i class="fas fa-edit" (click) = "action(item.id, 'active')"></i>
+                        </span>
+                        </td>
+                        
+                      </ng-container>
+
+                     
+                    </tr>
+                  </tbody>
+                  <br />
+                  <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)"
+                  >
+                  </pagination-controls>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>

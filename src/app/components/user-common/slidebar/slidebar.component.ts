@@ -47,6 +47,7 @@ isUserLoggedIn:boolean=false;
   }
 
   logout():void{
+    this.tokenStSerice.signOut();
     this.authService.logout(this.loggedUser.email).subscribe(
       {
         next: (data:any)=>{

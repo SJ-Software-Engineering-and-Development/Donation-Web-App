@@ -35,7 +35,7 @@
     
   </div>
  -->
-<div class="row backgroud1">
+<!-- <div class="row backgroud1">
   <div class="col-6">
     <section class="donation_addForm">
       <div class="row">
@@ -61,4 +61,54 @@
       </section>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////// -->
+
+<section class="shopping-cart2">
+  <div class="row mt-4">
+
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="img">
+          <div class="centered"><p>It is when you give of yourself</p><br><p>that you truly give...</p></div>
+          <div class="bottom-right">-Kahlil Gibran-</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header text-center">Donate now</div>
+        <div class="card-body" style="font-size: medium">
+          <form [formGroup]="create_donationForm">
+            
+            <div class="form-group">
+              <label for="exampleInputPassword1">Title</label>
+              <input type="text" class="form-control" id="" placeholder="Title" formControlName="title">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Target Amount</label>
+              <input type="text" class="form-control" id="" placeholder="Target Amount" formControlName="targetAmout">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">target Date</label>
+              <input type="date" class="form-control" id="" placeholder="target Date" formControlName="targetDate">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Categary</label>
+              <input type="text" class="form-control" id="" placeholder="Categary" formControlName="category">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Description</label>
+              <input type="text" class="form-control" id="" placeholder="Description" formControlName="description">
+            </div>
+  
+            <button type="button" (click)= "submit()" class="app-btn">Submit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>

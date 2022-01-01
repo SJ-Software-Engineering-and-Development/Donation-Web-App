@@ -1,0 +1,196 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<section class="shopping-cart">
+    <div class="details" style="margin-top: 3rem">
+        <div class="row">
+            
+              <div class="col-sm-3">
+                <div class="card app-card">
+                  <div class="card-body">
+                    <div class="text-center">
+                        
+                            <!-- <i class="fas fa-users mr-2 fa-5x" style="color: red;"></i> -->
+                            <span style="font-size: 65px; color: rgb(27, 134, 177);">
+                                <i class="fas fa-plus" (click) = "btn_change()" data-toggle="modal" data-target="#AddCategory"></i>
+                            </span>
+                        
+                      <h5
+                        style="font-size: medium; font-weight: bold"
+                        class="card-title mt-2"
+                      >
+                        Add New
+                      </h5>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+        </div> 
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header text-center"><b>Category</b></div>
+            <div class="card-body">
+              <div class="row">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="
+                    let item of categary
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          }
+                  ">
+                      <td>{{item.name}}</td>
+                      <td>{{item.description}}</td>
+                      <td><span style="font-size: 20px; color: rgb(27, 134, 177);">
+                        <i class="fas fa-eye" (click) = "populateImage(item.image)" data-toggle="modal" data-target="#showImage"></i>
+                    </span>
+                  </td>
+                  <td><span style="font-size: 20px; color: rgb(226, 14, 14);">
+                    <i class="fas fa-trash-alt" (click) = "delete(item.id)"></i>
+                </span>
+                <span style="font-size: 20px; color: rgb(233, 193, 15);" class="ml-4">
+                  <i class="fas fa-edit" (click) = "updateForm(item.id)"  data-toggle="modal" data-target="#AddCategory"></i>
+              </span>
+              </td>
+                    </tr>
+                  </tbody>
+                  <br />
+                  <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)"
+                  >
+                  </pagination-controls>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+<!-- Categary add Modal -->
+<div class="modal fade" id="AddCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">Add Categary</div>
+              <div class="card-body" style="font-size: medium">
+                <form [formGroup]="CategoryForm">
+                  
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Name</label>
+                    <input type="text" class="form-control" id="" placeholder="Name" formControlName="Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control" id="" placeholder="Description" formControlName="Description">
+                  </div>
+                 
+                  <div class="custom-file mt-4">
+                    <input
+                      type="file"
+                      (change)="upload($event)"
+                      class="custom-file-input"
+                      id="image"
+                      formControlName="image"
+                    />
+                    <label class="custom-file-label" for="image">
+                      {{
+                        selectedFile?.name || "Upload image"
+                      }}</label
+                    >
+                    <div class="invalid-feedback">
+                      Example invalid custom file feedback
+                    </div>
+                  </div>
+                  <br>
+                <div class="modal-footer">
+                  <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <ng-container [ngSwitch]="isUpdate">
+                    <!-- the same view can be shown in more than one case -->
+                    
+                    <button type="button" *ngSwitchCase="false" (click) = "submit()" class="btn btn-primary" data-dismiss="modal">Add</button>
+                    <button type="button" *ngSwitchCase="true" (click) = "update()" class="btn btn-primary" data-dismiss="modal">Update</button>
+
+                    <!--default case when there are no matches -->
+                    
+                  </ng-container>
+                 
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Image  Modal -->
+<div class="modal fade" id="showImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">Image</div>
+              <div class="card-body" style="font-size: medium">
+                
+
+                <img style="width: 100%; display: block;" src="{{ avatar }}" alt="" />
+
+
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+

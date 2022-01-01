@@ -1031,10 +1031,45 @@ section{
 
 .wall{
   background-image: url("../src/assets/images/donationF.png");
-  height:700px;width:500px;
+  height:400px;width:200px;
   background-repeat:no-repeat;
   background-size:auto;
   margin: auto;
+  
+  
+}
+.containerimg{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: #fcfcfc;
+  font-size: xx-large;
+  font-style: oblique;
+}
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: #fff;
+  font-size: medium;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.img {
+  text-align: center;
+  // background-image: linear-gradient(to right, rgb(80, 3, 10), rgba(179, 25, 25, 0));;
+  background-image: url("../src/assets/images/add_donation.jpg");
+  height:450px;width:100%;
+  background-repeat:no-repeat;
+  background-size:auto;
+  margin: 0px;
+
+  position: relative;
   
   
 }
@@ -1176,6 +1211,102 @@ section{
 
 .shopping-cart{
 
+  .box-container{
+    @include grid(31rem);
+
+    .box{
+      padding:2rem;
+      border:$border;
+      background: $white;
+      border-radius: .5rem;
+      box-shadow: $box-shadow;
+      display: flex;
+      align-items: center;
+      gap:.5rem;
+      position: relative;
+
+      .fa-times{
+        position: absolute;
+        top:1rem; right:1.5rem;
+        font-size: 2.5rem;
+        color:$light-color;
+        cursor: pointer;
+
+        &:hover{
+          color:$black;
+        }
+      }
+
+      img{
+        height: 12rem;
+      }
+
+      .content{
+
+        h3{
+          font-size: 1.7rem;
+          color:$black;
+        }
+
+        form{
+          padding:1rem 0;
+          display: flex;
+          gap:.5rem;
+          align-items: center;
+
+          span{
+            font-size: 1.5rem;
+            color:$light-color;
+          }
+
+          input{
+            width: 7rem;
+            padding: .5rem 1rem; 
+            color:$light-color;
+            border-radius: .5rem;
+            background: $light-bg;
+            font-size: 1.5rem;
+          }
+        }
+
+        .price{
+          font-size: 2rem;
+          color:$blue;
+
+          span{
+            font-size: 1.5rem;
+            color:$light-color;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+
+  .cart-total{
+    margin-top: 2rem;
+    box-shadow: $box-shadow;
+    border:$border;
+    border-radius: .5rem;
+    background: $white;
+    padding:2rem;
+    padding-top: 1rem;
+
+    h3{
+      padding-top: 1rem;
+      font-size: 2rem;
+      color:$black;
+
+      span{
+        color:$blue;
+      }
+    }
+  }
+}
+
+
+.shopping-cart2{
+  background-image: linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));;
   .box-container{
     @include grid(31rem);
 

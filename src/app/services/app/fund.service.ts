@@ -25,4 +25,8 @@ export class fundService {
     getMyfunds(id:string): Observable<any>{
       return this.http.get(`${API_URL}/getMyFunds/${id}`);
     }
+    
+    update(id: string, status: string): Observable<any> {
+      return this.http.patch(`${API_URL}/${id}/${status}`,null);
+    }
 }

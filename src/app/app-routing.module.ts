@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './components/Admin/admin-dashboard/admin-dashboard.component';
+import { FundCategariesComponent } from './components/Admin/fund-categaries/fund-categaries.component';
+import { FundsComponent } from './components/Admin/funds/funds.component';
 import { AddDonationComponent } from './components/donation/add-donation/add-donation.component';
 import { DonationDashboardComponent } from './components/donation/donation-dashboard/donation-dashboard.component';
 import { MyFundComponent } from './components/donation/my-fund/my-fund.component';
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'add-donation', component:AddDonationComponent},
   { path: 'view-fund/:id', component:ViewFundComponent},
   { path: 'donation-success', component:ThankPageComponent},
+  { path: 'admin-dashboard', component:AdminDashboardComponent},
+  { path: 'fund-categaries', component:FundCategariesComponent},
+  { path: 'funds', component:FundsComponent},
   { path: 'my-fund', component:MyFundComponent}
 //   {
 //     path: 'donation',

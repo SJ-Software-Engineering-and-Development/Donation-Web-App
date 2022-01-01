@@ -7,6 +7,7 @@ import { fundService } from 'src/app/services/app/fund.service';
 import { registrationService } from 'src/app/services/app/auth/registration.service';
 import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 import { TokenStorageService } from 'src/app/services/app/auth/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-donation',
@@ -67,20 +68,24 @@ export class AddDonationComponent implements OnInit {
         },
 
         error: (err) => {
-          // this.errorMessage = 'Invalid Credentials!'; 
+          Swal.fire({  
+            icon: 'error',  
+            title: 'Oops...',  
+            text: "All fields are required !",  
+            footer: '<a href>Why do I have this issue?</a>'  
+          }) 
           console.log(err);
+          
         },
 
         complete: () => {
           console.info('complete');
-          
+          this.create_donationForm.reset();
+          Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
+
         } 
       }
     );
     
   }
-
-
-
-
 }

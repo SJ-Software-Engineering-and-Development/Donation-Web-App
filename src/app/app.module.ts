@@ -21,6 +21,10 @@ import { SwiperModule } from "swiper/angular";
 import { ViewFundComponent } from './components/donation/view-fund/view-fund.component';
 import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
 import { MyFundComponent } from './components/donation/my-fund/my-fund.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminDashboardComponent } from './components/Admin/admin-dashboard/admin-dashboard.component';
+import { FundCategariesComponent } from './components/Admin/fund-categaries/fund-categaries.component';
+import { FundsComponent } from './components/Admin/funds/funds.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { MyFundComponent } from './components/donation/my-fund/my-fund.component
     ReviewCatelogComponent,
     ViewFundComponent,
     ThankPageComponent,
-    MyFundComponent
+    MyFundComponent,
+    AdminDashboardComponent,
+    FundCategariesComponent,
+    FundsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -46,6 +53,7 @@ import { MyFundComponent } from './components/donation/my-fund/my-fund.component
     MatInputModule,
     MatFormFieldModule,
     SwiperModule, 
+    NgxPaginationModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
