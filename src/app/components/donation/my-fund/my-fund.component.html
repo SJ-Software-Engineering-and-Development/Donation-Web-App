@@ -127,6 +127,7 @@
                       <th scope="col">Target Amount</th>
                       <th scope="col">Target Date</th>
                       <th scope="col">Description</th>
+                    
                     </tr>
                   </thead>
                   <tbody>
@@ -158,6 +159,9 @@
                       <td>{{ item.targetAmount }}</td>
                       <td>{{ item.targetDate }}</td>
                       <td>{{ item.description | slice: 0:20 }} ...</td>
+                      <td><span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                        <i class="fas fa-eye" (click) = "details(item.id)"></i>
+                    </span></td>
                     </tr>
                   </tbody>
                   <br />

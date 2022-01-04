@@ -25,6 +25,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminDashboardComponent } from './components/Admin/admin-dashboard/admin-dashboard.component';
 import { FundCategariesComponent } from './components/Admin/fund-categaries/fund-categaries.component';
 import { FundsComponent } from './components/Admin/funds/funds.component';
+import { FundDetailsComponent } from './components/Admin/fund-details/fund-details.component';
+import { FundCatelogComponent } from './components/donation/donation-dashboard/fund-catelog/fund-catelog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { FundsComponent } from './components/Admin/funds/funds.component';
     MyFundComponent,
     AdminDashboardComponent,
     FundCategariesComponent,
-    FundsComponent
+    FundsComponent,
+    FundDetailsComponent,
+    FundCatelogComponent
   ],
   imports: [
     AppRoutingModule,

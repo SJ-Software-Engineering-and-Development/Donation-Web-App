@@ -27,6 +27,7 @@
                       <th scope="col">Target Date</th>
                       <th scope="col">Create Date</th>
                       <th scope="col">Status</th>
+                      <th scope="col">Action</th>
                       
                     </tr>
                   </thead>
@@ -65,6 +66,9 @@
                           <span style="font-size: 20px; color: rgb(39, 121, 7);">
                             <i class="fas fa-edit" (click) = "action(item.id, 'suspend')"></i>
                         </span>
+                        <span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                          <i class="fas fa-eye" (click) = "details(item.id)"></i>
+                      </span>
                         </td>
                         <td *ngSwitchCase="'pending'" class="text-info">
                           <span style="font-size: 20px; color: rgb(39, 121, 7);">
@@ -73,15 +77,21 @@
                         <span style="font-size: 20px; color: rgb(172, 8, 8);" class="ml-2">
                           <i class="fas fa-edit" (click) = "action(item.id, 'suspend')"></i>
                       </span>
+                      <span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                        <i class="fas fa-eye" (click) = "details(item.id)"></i>
+                    </span>
                         </td>
                         <td *ngSwitchCase="'suspend'" class="text-info">
                           <span style="font-size: 20px; color: rgb(39, 121, 7);">
                             <i class="fas fa-edit" (click) = "action(item.id, 'active')"></i>
                         </span>
+                        <span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                          <i class="fas fa-eye" (click) = "details(item.id)"></i>
+                      </span>
                         </td>
                         
                       </ng-container>
-
+                      
                      
                     </tr>
                   </tbody>

@@ -12,9 +12,9 @@
                       style="font-size: medium; font-weight: bold"
                       class="card-title"
                     >
-                      <i class="fas fa-hand-holding-usd mr-2" style="color: seagreen;"></i> My Active Funds
+                      <i class="fas fa-hand-holding-usd mr-2" style="color: seagreen;"></i>Active Funds
                     </h5>
-                    <p style="font-size: 35px; margin-top: 30px; ">dsda</p>
+                    <p style="font-size: 35px; margin-top: 30px; ">0</p>
                     <p class="card-text">
                       <!-- {{ fund.category?.name }} <br />
                       {{ fund.category?.description }} -->
@@ -29,9 +29,9 @@
                       style="font-size: medium; font-weight: bold"
                       class="card-title"
                     >
-                      <i class="fas fa-history mr-2" style="color: sandybrown;"></i> My pending Funds
+                      <i class="fas fa-history mr-2" style="color: sandybrown;"></i>pending Funds
                     </h5>
-                    <p style="font-size: 35px; margin-top: 30px;">dasda</p>
+                    <p style="font-size: 35px; margin-top: 30px;">0</p>
                     <p class="card-text">
                       <!-- {{ daysLeft }} -->
                     </p>
@@ -50,9 +50,9 @@
                         style="font-size: medium; font-weight: bold"
                         class="card-title"
                       >
-                        <i class="fas fa-times mr-2 " style="color: red;"></i>My Cancled Funds
+                        <i class="fas fa-times mr-2 " style="color: red;"></i>Cancled Funds
                       </h5>
-                      <p style="font-size: 35px; margin-top: 30px;">asdasd</p>
+                      <p style="font-size: 35px; margin-top: 30px;">0</p>
                       <!-- <p class="card-text text-info">Rs. {{ fund.targetAmount }}</p> -->
                     </div>
                    
@@ -66,18 +66,18 @@
     
         <div class="details" style="margin-top: 3rem">
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="card app-card" [routerLink]="['/fund-categaries']">
-                      <div class="card-body">
-                        <div class="text-center">
-                            
+                <div class="col-sm-6 mt-4">
+                    <div class="card app-card card-height cardbg" [routerLink]="['/fund-categaries']">
+                      <div class="card-body flex-container ">
+                        <div class="">
+                           
                                 <!-- <i class="fas fa-bars mr-2 fa-5x" style="color: red;"></i> -->
-                                <span style="font-size: 65px; color: rgb(167, 110, 25);">
+                                <span style="font-size: 65px; color: rgb(167, 110, 25); padding: 30px;">
                                     <i class="fas fa-bars"></i>
                                 </span>
                             
                           <h5 
-                            style="font-size: medium; font-weight: bold"
+                            style="font-size: medium; font-weight: bold;"
                             class="card-title mt-2"
                           >
                             Fund Categories
@@ -87,9 +87,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-3">
-                    <div class="card app-card">
-                      <div class="card-body">
+                  <div class="col-sm-6 mt-4">
+                    <div class="card app-card card-height cardbg">
+                      <div class="card-body flex-container">
                         <div class="text-center">
                             
                                 <!-- <i class="fas fa-users mr-2 fa-5x" style="color: red;"></i> -->
@@ -108,13 +108,13 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-3">
-                    <div class="card app-card" [routerLink]="['/funds']">
-                      <div class="card-body">
-                        <div class="text-center">
+                  <div class="col-sm-6 mt-4">
+                    <div class="card app-card card-height cardbg" [routerLink]="['/funds']">
+                      <div class="card-body flex-container">
+                        <div class="">
                             
                                 <!-- <i class="fas fa-hand-holding-usd mr-2 fa-5x" style="color: red;"></i> -->
-                                <span style="font-size: 65px; color: rgb(172, 169, 27);">
+                                <span style="font-size: 65px; color: rgb(172, 169, 27); padding: 20px;">
                                     <i class="fas fa-hand-holding-usd"></i>
                                 </span>
                             
@@ -129,10 +129,10 @@
                       </div>
                     </div>
                   </div>
-              <div class="col-sm-3">
-                <div class="card app-card">
-                  <div class="card-body">
-                    <div class="text-center">
+              <div class="col-sm-6 mt-4">
+                <div class="card app-card card-height cardbg">
+                  <div class="card-body flex-container">
+                    <div class="">
                         
                             <!-- <i class="fas fa-donate mr-2 fa-4x" style="color: rgb(55, 177, 116);"></i> -->
                             <span style="font-size: 65px; color: rgb(23, 153, 120);">
@@ -154,41 +154,6 @@
       
             
         </div>
-        <div class="row mt-4">
-            <div class="col-sm-12">
-              <div class="card">
-                <div class="card-header text-center"><b>My Funds</b></div>
-                <div class="card-body">
-                  <div class="row">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">Title</th>
-                          <th scope="col">Status</th>
-                          <th scope="col">Target Amount</th>
-                          <th scope="col">Target Date</th>
-                          <th scope="col">Description</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          
-                        >
-                          <!-- <th scope="row">1</th> -->
-                          <td>sfsdf</td>
-                         
-                          <td>asdasd</td>
-                          <td>asdas</td>
-                          <td>sfdasf</td>
-                        </tr>
-                      </tbody>
-                      <br />
-                      
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
     </section>
 

@@ -16,6 +16,11 @@ SwiperCore.use([Navigation]);
 })
 export class DonationDashboardComponent implements OnInit {
 
+  //Pagination
+  page = 1;
+  count = 0;
+  tableSize = 12;
+
   reviewsList = [{
     "id":1,
     "name": "Supun Perera",
@@ -84,26 +89,8 @@ export class DonationDashboardComponent implements OnInit {
     "isReadMore": true
   }];
 
-  fundList=[
-    {
-        "id": "",
-        "title": "",
-        "description": "",
-        "targetAmount": "",
-        "targetDate": "",
-        "createdDate": "",
-        "status": "",
-        "userProfileId": "",
-        "categoryId": "",
-        "category": {
-            "id": "",
-            "name": "",
-            "description": "",
-            "image": "",
-            "status": ""
-        }
-    }
-];
+  fundList:IFund[];
+
 
   constructor(
     private fundService: fundService,
@@ -115,6 +102,10 @@ export class DonationDashboardComponent implements OnInit {
     this.getFunds();
 
   }
+  onTableDataChange(event:any){
+    this.page = event;
+    this.getFunds();
+  } 
 
   showText(reviewid:number) {
     let index = this.reviewsList.findIndex((obj:any) => obj.id ==reviewid );
@@ -140,4 +131,30 @@ export class DonationDashboardComponent implements OnInit {
       this.router.navigate(['view-fund',id]):
       this.router.navigate(['login']);
   }
+  
+  populateImage(name: string):string{
+    
+    console.log(name);
+    return `http://localhost:8081/${name}`;
+    
+  }
 } 
+
+interface IFund{
+  id:string,
+        title: string,
+        description: string,
+        targetAmount: string,
+        targetDate: string,
+        createdDate: string,
+        status: string,
+        userProfileId: string,
+        categoryId: string,
+        category: {         
+         id: string,
+            name: string,
+            description: string,
+            image: string,
+            status: string
+        }
+}

@@ -1,0 +1,28 @@
+.card-height{
+    height: 300px;
+}
+
+.centerIcon{
+    display: block;
+}
+
+.flex-container {
+    height:500px;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+  }
+  .cardbg{}
+  .cardbg :hover{
+    background-color:#2d95e4;
+    transition: 1.5s;
+  }
+  
+  .flex-container > div {
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+  }

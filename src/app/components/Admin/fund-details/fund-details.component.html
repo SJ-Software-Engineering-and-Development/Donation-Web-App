@@ -1,0 +1,225 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<!-- payhere SDK : https://support.payhere.lk/api-&-mobile-sdk/payhere-javascript -->
+<!-- <script
+  type="text/javascript"
+  src="https://www.payhere.lk/lib/payhere.js"
+></script> -->
+
+<!-- OR Node version is available-->
+
+<!-- Docs-->
+<!-- https://support.payhere.lk/api-&-mobile-sdk/payhere-reactnative -->
+<!-- Node Package : payhere-js-sdk -->
+<!-- cmd          : yarn add payhere-js-sdk  (npm version not working, but yarn working)-->
+<!-- Docs         : https://yarnpkg.com/package/payhere-js-sdk#readme -->
+
+<section class="shopping-cart">
+  <div class="cart-total">
+    <div class="fundUser">
+      <img src="../../../../assets/images/avatar/userempty.png" alt="" />
+      <h3 style="margin-bottom: 0px">{{ fund.userProfile?.fullName }}</h3>
+      <h5 style="margin-top: 0%">{{ fund.userProfile?.address }}</h5>
+    </div>
+    <h1 class="heading" style="margin-bottom: 1rem; margin-top: 1rem">
+      {{ fund?.title }}
+    </h1>
+    <p style="text-align: center; width: align-self; margin-right: 12px">
+      {{ fund?.description }}
+    </p>
+    <div class="details" style="margin-top: 3rem">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <h5
+                style="font-size: medium; font-weight: bold"
+                class="card-title"
+              >
+                <i class="fas fa-bars mr-2"></i> Category
+              </h5>
+              <p class="card-text">
+                {{ fund.category?.name }} <br />
+                {{ fund.category?.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <h5
+                style="font-size: medium; font-weight: bold"
+                class="card-title"
+              >
+                <i class="fas fa-history mr-2"></i> Days left
+              </h5>
+              <p class="card-text">
+                {{ daysLeft }}
+              </p>
+              <p class="card-text">
+                {{ fund.userProfile?.fullName }} expect to complete this fund at
+                {{ fund?.targetDate }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card app-card">
+            <div class="card-body">
+              <div>
+                <h5
+                  style="font-size: medium; font-weight: bold"
+                  class="card-title"
+                >
+                  <i class="fas fa-hand-holding-usd mr-2"></i>Target Amount
+                </h5>
+                <p class="card-text text-info">Rs. {{ fund.targetAmount }}</p>
+              </div>
+              <div class="mt-4">
+                <h5
+                  style="font-size: medium; font-weight: bold"
+                  class="card-title"
+                >
+                  <i class="fas fa-users mr-2"></i> Total Donations
+                </h5>
+                <p class="card-text">
+                  {{ fund.userProfile?.fullName }} has received
+                  {{ totalDonations }} donations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header text-center">My funds</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <b>Total Donations Rs. </b>
+                      <span class="text-success">{{ donationsSum }}</span> |
+                      <b>Target Amount Rs.</b>
+                      <span class="text-info"> {{ fund.targetAmount }}</span>
+                    </li>
+                    <li class="list-group-item">
+                      Target amount Progress
+                      <div class="progress mt-2" style="height: 20px">
+                        <div
+                          class="progress-bar progress-bar-striped"
+                          role="progressbar"
+                          [ngStyle]="{ width: donatePresentage }"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Target date Rs.</b> {{ fund.targetDate }}
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <b>Full Name:</b> {{ fund.userProfile?.fullName }}
+                    </li>
+                    <li class="list-group-item">
+                      <b>Address:</b> {{ fund.userProfile?.address }}
+                    </li>
+                    <li class="list-group-item">
+                      <b>Contact no:</b> {{ fund.userProfile?.contact }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" [routerLink]="['/funds']">Go Back</button>
+            <button type="button" class="btn btn-success" style="background-color: seagreen;" data-toggle="modal" data-target="#addfeedback">Review</button>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Review add Modal -->
+<div class="modal fade" id="addfeedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">Review</div>
+              <div class="card-body" style="font-size: medium">
+                <form [formGroup]="reviewForm">
+                  
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Enter Your Feedback</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" formControlName="feedback"></textarea>
+                  </div>
+                  <div class="custom-file mt-4">
+                    <input
+                      type="file"
+                      (change)="upload($event)"
+                      class="custom-file-input"
+                      id="image"
+                      formControlName="image"
+                    />
+                    <label class="custom-file-label" for="image">
+                      {{
+                        selectedFile?.name || "Upload image"
+                      }}</label
+                    >
+                    <div class="invalid-feedback">
+                      Example invalid custom file feedback
+                    </div>
+                  </div>
+                  <br>
+                <div class="modal-footer">
+                  <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 
+                    <!-- the same view can be shown in more than one case -->
+                    
+                    <button type="button" class="btn btn-primary" (click) = "submitReview()" data-dismiss="modal">Save</button>
+                    
+
+                    <!--default case when there are no matches -->
+                    
+                 
+                 
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div> -->
+    </div>
+  </div>
+</div>

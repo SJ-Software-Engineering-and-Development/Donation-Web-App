@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 import { fundService } from 'src/app/services/app/fund.service';
 import Swal from 'sweetalert2';
@@ -19,7 +20,8 @@ export class FundsComponent implements OnInit {
   tableSize = 5;
 
   constructor( 
-    private fundService:fundService
+    private fundService:fundService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -89,5 +91,11 @@ export class FundsComponent implements OnInit {
     this.page = event;
     this.getAll();
   } 
+
+  details(id:string):void{
+   console.log(id);
+    this.router.navigate(['fund-details',id]);
+    
+}
 
 }

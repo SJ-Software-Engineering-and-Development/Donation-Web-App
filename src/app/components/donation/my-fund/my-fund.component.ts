@@ -77,6 +77,12 @@ export class MyFundComponent implements OnInit {
     })
   }
 
+  details(id:string):void{
+    console.log(id);
+     this.router.navigate(['fund-details',id]);
+     
+ }
+
   userDetails():void{
     this.user = JSON.parse(sessionStorage.getItem('auth-user') || '{}');
     console.log(this.user.avatar);

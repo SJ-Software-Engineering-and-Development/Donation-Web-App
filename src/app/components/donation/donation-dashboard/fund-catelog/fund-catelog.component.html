@@ -1,0 +1,48 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+
+<div class="row">
+  <div (click)="donateNow(item.id)" class="product--green" *ngFor="
+  let item of fundList
+    | paginate
+      : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        }">
+    <div class="product_inner">
+      <img
+        [src]="populateImage(item.category.image)"
+        alt="Avatar"
+        
+      />
+      <div class="card-text">
+        <span class="btn-group">
+          <i class="fa fa-comments"></i>
+          <h6 class="name">{{item.title}}</h6>
+        </span>
+        <p class="date">sadasdasd</p>
+
+        <!-- <p [ngClass]="{ limitTextHeight: review.isReadMore }">
+          {{ review.review.length > 10 }} {{ review.review }}
+          <span *ngIf="review.isReadMore">...</span>
+        </p>
+        <p
+          *ngIf="review.review.length > 30"
+          style="color: white; cursor: pointer"
+          href="#"
+          class="date"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ review.isReadMore ? "Read More" : "Read Less" }}
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+</pagination-controls>
