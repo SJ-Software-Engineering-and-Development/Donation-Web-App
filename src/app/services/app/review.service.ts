@@ -15,8 +15,8 @@ export class reviewService {
     return this.http.post(API_URL, data);
     }
 
-    getAll(id:string): Observable<any>{
-      return this.http.get(`${API_URL}/getByid/${id}`);
+    getAll(): Observable<any>{
+      return this.http.get(API_URL);
     }
     
 }

@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit {
           switch(this.role){
             case 'client':  this._router.navigate(["donation-dashboard"]);
             break;
+            case 'site-admin':  this._router.navigate(["admin-dashboard"]);
+            break;
             default:  ;
           }
 

@@ -27,6 +27,10 @@ import { FundCategariesComponent } from './components/Admin/fund-categaries/fund
 import { FundsComponent } from './components/Admin/funds/funds.component';
 import { FundDetailsComponent } from './components/Admin/fund-details/fund-details.component';
 import { FundCatelogComponent } from './components/donation/donation-dashboard/fund-catelog/fund-catelog.component';
+import { ConfirmedFundsComponent } from './components/donation/confirmed-funds/confirmed-funds.component';
+import { CategoryCatelogComponent } from './components/donation/donation-dashboard/category-catelog/category-catelog.component';
+import { DonationsListComponent } from './components/Admin/donations-list/donations-list.component';
+import { UsersListComponent } from './components/Admin/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { FundCatelogComponent } from './components/donation/donation-dashboard/f
     FundCategariesComponent,
     FundsComponent,
     FundDetailsComponent,
-    FundCatelogComponent
+    FundCatelogComponent,
+    ConfirmedFundsComponent,
+    CategoryCatelogComponent,
+    DonationsListComponent,
+    UsersListComponent
   ],
   imports: [
     AppRoutingModule,

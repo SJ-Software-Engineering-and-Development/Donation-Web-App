@@ -21,13 +21,23 @@
   </div>
 
   <nav class="navbar">
-    <a href="home.html"> <i class="fas fa-angle-right"></i> home </a>
-    <a href="about.html"> <i class="fas fa-angle-right"></i> about </a>
-    <a href="products.html"> <i class="fas fa-angle-right"></i> products </a>
-    <a href="contact.html"> <i class="fas fa-angle-right"></i> contact </a>
-    <a href="login.html"> <i class="fas fa-angle-right"></i> login </a>
-    <a href="register.html"> <i class="fas fa-angle-right"></i> register </a>
-    <a href="cart.html"> <i class="fas fa-angle-right"></i> cart </a>
+    <div *ngIf="role == 'site-admin'; else elseBlock">  
+	
+      <a [routerLink]="['/admin-dashboard']"  (click)="handleSlider(false)"> <i class="fas fa-angle-right" ></i> DashBoard </a>
+      <a [routerLink]="['/fund-categaries']"  (click)="handleSlider(false)"> <i class="fas fa-angle-right" ></i> Fund Category </a>
+      <a [routerLink]="['/funds']"  (click)="handleSlider(false)"> <i class="fas fa-angle-right" ></i> Funds </a>
+        
+      </div>  
+        
+      <ng-template #elseBlock>  
+        
+        <a [routerLink]="['/donation-dashboard']" (click)="handleSlider(false)"> <i class="fas fa-angle-right" ></i> Home </a>
+        <a [routerLink]="['/my-fund']" (click)="handleSlider(false)"> <i class="fas fa-angle-right"></i> My Funds </a>
+        <a [routerLink]="['/add-donation']" (click)="handleSlider(false)"> <i class="fas fa-angle-right"></i> New Fund </a>
+        <a [routerLink]="['/my-donation']" (click)="handleSlider(false)"> <i class="fas fa-angle-right"></i> My Donations </a>
+        
+      </ng-template> 
+
   </nav>
 </div>
-<!-- side-bar section ends -->
+

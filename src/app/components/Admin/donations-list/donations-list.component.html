@@ -1,0 +1,112 @@
+<section class="shopping-cart">
+    <div class="cart-total">
+        <div class="row mt-4">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header text-center"><b>Donations</b></div>
+                <div class="card-body">
+                  <div class="row">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Amout</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">View</th>
+                          <th scope="col">Reveived Confirm</th>
+        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                        <tr
+                          *ngFor="let item of donations | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: count
+                            }"
+                        >
+                         
+                          <td>{{item.amount}}</td>
+                          <td>{{item.type}}</td>
+                          <td>{{item.createdAt | date: "short"}}</td>
+                          <td>{{item.status}}</td>
+        
+                          <td><span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                            <i class="fas fa-eye" (click) = "populateImage(item.image)" data-toggle="modal" data-target="#showImage"></i>
+                        </span></td>
+                        <ng-container [ngSwitch]="item.status">
+                        
+                          <td *ngSwitchCase="'received'">
+                            <span style="font-size: 20px; color: rgb(12, 219, 122);" class="ml-4">
+                            <i class="fas fa-check"  ></i>
+                        </span></td>
+        
+                        <td *ngSwitchCase="'donated'">
+                          <span style="font-size: 16px; color: rgb(235, 194, 13);" class="ml-4">
+                          Not received
+                      </span></td> 
+                  
+        
+                        
+                          
+                        </ng-container>
+                        
+                        </tr>
+                      </tbody>
+                      <br />
+                      <pagination-controls
+                      previousLabel="Prev"
+                      nextLabel="Next"
+                      (pageChange)="onTableDataChange($event)"
+                    >
+                    </pagination-controls>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [routerLink]="['/admin-dashboard']">Go Back</button>
+        
+      </div>
+</section>
+
+<div class="modal fade" id="showImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header text-center">Image</div>
+                <div class="card-body" style="font-size: medium">
+                  
+  
+                  <img style="width: 100%; display: block;" src="{{image}}" alt="" />
+
+                </div>
+  
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add</button>
+        </div> -->
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,112 @@
+<section class="shopping-cart">
+    <div class="cart-total">
+        <div class="row mt-4">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header text-center"><b>Recieved Funds</b></div>
+                <div class="card-body">
+                  <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Amout</th>
+                         
+                            <th scope="col">Type</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">View</th>
+                            <th scope="col">Reveived Confirm</th>
+  
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                          <tr
+                            *ngFor="let item of myDontions| paginate
+                            : {
+                                itemsPerPage: tableSize,
+                                currentPage: page,
+                                totalItems: count
+                              }
+                      "
+                          >
+                            <!-- <th scope="row">1</th> -->
+                            <td>{{item.amount}}</td>
+                          
+                            <td>{{item.type}}</td>
+                            <td>{{item.DonatedDate}}</td>
+                            <td>{{item.status}}</td>
+     
+                            <td><span style="font-size: 20px; color: rgb(33, 12, 219);" class="ml-2">
+                              <i class="fas fa-eye" (click) = "populateImage(item.image, item.details)" data-toggle="modal" data-target="#showImage"></i>
+                          </span></td>
+                          <ng-container [ngSwitch]="item.status">
+                            <!-- the same view can be shown in more than one case -->
+                            <td *ngSwitchCase="'received'">
+                              <span style="font-size: 20px; color: rgb(12, 219, 122);" class="ml-4">
+                              <i class="fas fa-check"  ></i>
+                          </span></td>
+  
+                          <td *ngSwitchCase="'donated'">
+                            <span style="font-size: 20px; color: rgb(12, 135, 218);" class="ml-4">
+                            <i class="fas fa-donate" ></i>
+                        </span></td>
+                    
+        
+                            <!--default case when there are no matches -->
+                            
+                          </ng-container>
+                          
+                          </tr>
+                        </tbody>
+                        <br />
+                     
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)"
+                  >
+                  </pagination-controls>
+
+    <div class="modal fade" id="showImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header text-center">Image</div>
+                    <div class="card-body" style="font-size: medium">
+                      
+      
+                      <img style="width: 100%; display: block;" src="{{image}}" alt="" />
+                      <p class="mt-4">{{description}}</p>
+      
+                    </div>
+      
+                    
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Add</button>
+            </div> -->
+          </div>
+        </div>
+      </div>

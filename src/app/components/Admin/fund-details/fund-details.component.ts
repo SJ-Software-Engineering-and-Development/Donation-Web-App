@@ -16,19 +16,23 @@ import Swal from 'sweetalert2';
 export class FundDetailsComponent implements OnInit {
 
   fund:any ={};
+  receivedFunds:any={};
   daysLeft:any='';
   totalDonations=0;
   donationsSum=0;
   donatePresentage ='';
+  description:string;
 
   selectedFile: File | null = null;
   reviewForm:FormGroup;
   user: any ={};
+  image:string = '';
  // checkoutData  = 
 
   constructor(
     private fb:FormBuilder,
     private fundService: fundService,
+    private donationService:donationService,
     private reviewService: reviewService,
     private router:Router,
     private authService: AuthenticationService,
@@ -53,7 +57,25 @@ export class FundDetailsComponent implements OnInit {
     });
   }
 
-
+  getRevievedFund():void{
+    this.donationService.receivedFunds(this.fund.id).subscribe({
+      next:(data:any) =>{
+       this.receivedFunds = data.data;
+        console.log(data);
+       
+      },
+      error:(err:any) =>{
+        console.log(err);
+      },
+      complete :()=>{
+        
+      }
+    })
+  }
+  populateImage(name: string , des:string){
+    this.image= `http://localhost:8081/${name}`;
+    this.description = des;
+  }
 
   getFundById(id:string):void{
     this.fundService.getById(id).subscribe({
@@ -62,6 +84,9 @@ export class FundDetailsComponent implements OnInit {
        this.totalDonations = data.data.totalDonations;
        this.donationsSum = data.data.totalDonationsAmount;
        this.calPersentageOfDonate();
+
+        this.getRevievedFund();
+
       },
       error:(err:any) =>{
         console.log(err);
@@ -92,7 +117,7 @@ export class FundDetailsComponent implements OnInit {
     
     var formData: any = new FormData();
 
-    formData.append("review", this.reviewForm.value.Description);
+    formData.append("review", this.reviewForm.value.feedback);
     formData.append("image", this.selectedFile);
     formData.append("donorId", this.user.id);
 
@@ -119,6 +144,46 @@ export class FundDetailsComponent implements OnInit {
           } 
       }
       );
+    }
+
+    action(id:string, status: string){
+
+      Swal.fire({
+        title: 'Are you sure to ' +status+' ?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, '+status+'  it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.donationService.statusUpdate(id, status).subscribe(
+            {
+                next: (data:any) => {
+                  console.log(data);
+                  this.getRevievedFund();
+                 
+                },  
+                error: (err:any) => {
+                  Swal.fire({  
+                    icon: 'error',  
+                    title: 'Oops...',  
+                    text: "Something went wrong!",  
+                    footer: '<a href>Why do I have this issue?</a>'  
+                  }) 
+                  console.log(err);
+                },
+        
+                complete: () => {
+                  console.info('complete');
+                 
+                  Swal.fire('Thank you...', 'Updated succesfully!', 'success');
+                } 
+            }
+            );
+        }
+      })
     }
 
 }

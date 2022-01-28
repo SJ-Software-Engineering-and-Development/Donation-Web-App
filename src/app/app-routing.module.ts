@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/Admin/admin-dashboard/admin-dashboard.component';
+import { DonationsListComponent } from './components/Admin/donations-list/donations-list.component';
 import { FundCategariesComponent } from './components/Admin/fund-categaries/fund-categaries.component';
 import { FundDetailsComponent } from './components/Admin/fund-details/fund-details.component';
 import { FundsComponent } from './components/Admin/funds/funds.component';
+import { UsersListComponent } from './components/Admin/users-list/users-list.component';
 import { AddDonationComponent } from './components/donation/add-donation/add-donation.component';
+import { ConfirmedFundsComponent } from './components/donation/confirmed-funds/confirmed-funds.component';
 import { DonationDashboardComponent } from './components/donation/donation-dashboard/donation-dashboard.component';
 import { MyFundComponent } from './components/donation/my-fund/my-fund.component';
 import { ThankPageComponent } from './components/donation/thank-page/thank-page.component';
@@ -25,6 +28,9 @@ const routes: Routes = [
   { path: 'fund-categaries', component:FundCategariesComponent},
   { path: 'funds', component:FundsComponent},
   { path: 'fund-details/:id', component:FundDetailsComponent},
+  { path: 'my-donation', component:ConfirmedFundsComponent},
+  { path: 'donation-list', component:DonationsListComponent},
+  { path: 'users-list', component:UsersListComponent},
   { path: 'my-fund', component:MyFundComponent}
 //   {
 //     path: 'donation',

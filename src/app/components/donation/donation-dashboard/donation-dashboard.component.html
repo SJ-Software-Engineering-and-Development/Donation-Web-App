@@ -93,33 +93,12 @@
 
 <!-- banner section starts  -->
 
-<section class="banner">
-  <div class="box-container">
-    <a href="#" class="box">
-      <img src="../../../assets/images/banner-1.jpg" alt="" />
-      <div class="content">
-        <span>special offer</span>
-        <h3>upto 50% off</h3>
-      </div>
-    </a>
-
-    <a href="#" class="box">
-      <img src="../../../assets/images/banner-2.jpg" alt="" />
-      <div class="content">
-        <span>special offer</span>
-        <h3>upto 50% off</h3>
-      </div>
-    </a>
-
-    <a href="#" class="box">
-      <img src="../../../assets/images/banner-3.jpg" alt="" />
-      <div class="content">
-        <span>special offer</span>
-        <h3>upto 50% off</h3>
-      </div>
-    </a>
-  </div>
+<section class="arrivals">
+  <h1 class="heading"><span>Categories</span></h1>
+  <app-category-catelog [categoryList]="categoryList"></app-category-catelog>
 </section>
+
+
 
 <!-- banner section ends -->
 
@@ -127,15 +106,13 @@
 
 <section class="arrivals">
   <h1 class="heading"><span>Funds</span></h1>
-  <app-fund-catelog  [fundList]="fundList"></app-fund-catelog>
- 
-  
+  <app-fund-catelog  [fundList]="fundList"></app-fund-catelog> 
 </section>
 
 
 <section class="arrivals">
   <h1 class="heading">new <span>Reviews</span></h1>
-  <app-review-catelog [reviews]="reviewsList"></app-review-catelog>
+  <app-review-catelog [reviewsList]="reviewsList"></app-review-catelog>
 </section>
 
 <!-- arrivals section ends -->

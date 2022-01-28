@@ -3,19 +3,19 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 
 @Component({
-  selector: 'app-review-catelog',
-  templateUrl: './review-catelog.component.html',
-  styleUrls: ['./review-catelog.component.scss']
+  selector: 'app-category-catelog',
+  templateUrl: './category-catelog.component.html',
+  styleUrls: ['./category-catelog.component.scss']
 })
-export class ReviewCatelogComponent implements OnInit {
-  @Input('reviewsList') reviewsList:any;
+export class CategoryCatelogComponent implements OnInit {
 
-  //Pagination
-  page = 1;
-  count = 0;
-  tableSize = 12;
+  @Input('categoryList') categoryList:any;
 
-
+   //Pagination
+   page = 1;
+   count = 0;
+   tableSize = 3;
+   
   constructor(
     private router:Router,
     private authService: AuthenticationService
@@ -35,9 +35,4 @@ export class ReviewCatelogComponent implements OnInit {
     return `http://localhost:8081/${name}`;
     
   }
-
-  // showText(reviewid:number) {
-  //   let index = this.reviews.findIndex((obj:any) => obj.id ==reviewid );
-  //   this.reviews[index].isReadMore = !this.reviews[index].isReadMore;
-  // }
 }

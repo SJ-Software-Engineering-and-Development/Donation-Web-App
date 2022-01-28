@@ -4,8 +4,8 @@
 />
 
 <div class="row">
-  <div class="product--blue" *ngFor="
-  let item of reviewsList
+  <div class="product--green" *ngFor="
+  let item of categoryList
     | paginate
       : {
           itemsPerPage: tableSize,
@@ -13,11 +13,6 @@
           totalItems: count
         }">
     <div class="product_inner">
-      <!-- <img
-        src="https://pissukanna.com/media/2021/07/WhatsApp-Image-2021-10-13-at-4.07.21-PM-1-500x496.jpeg"
-        alt="Avatar"
-        style="width: 100%"
-      /> -->
       <img
         [src]="populateImage(item.image)"
         alt="Avatar"
@@ -26,9 +21,10 @@
       <div class="card-text">
         <span class="btn-group">
           <i class="fa fa-comments"></i>
-          <h6 class="name">{{item.review}}</h6>
+          <h6 class="name">{{item.name}}</h6>
         </span>
-        <p class="date">{{item.date}}</p>
+        <p class="date">Description : {{item.description}}</p>
+        
 
         <!-- <p [ngClass]="{ limitTextHeight: review.isReadMore }">
           {{ review.review.length > 10 }} {{ review.review }}
@@ -36,7 +32,6 @@
         </p>
         <p
           *ngIf="review.review.length > 30"
-          (click)="showText(review.id)"
           style="color: white; cursor: pointer"
           href="#"
           class="date"

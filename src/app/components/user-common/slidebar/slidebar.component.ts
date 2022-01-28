@@ -16,6 +16,8 @@ loggedUser:any = {};
 avatar:string='';
 isUserLoggedIn:boolean=false;
 
+role:string = 'client';
+
   constructor(
     private authService:AuthenticationService,
     private tokenStSerice:TokenStorageService
@@ -31,6 +33,7 @@ isUserLoggedIn:boolean=false;
     if(this.authService.isUserLoggedIn())
     {
       this.avatar= `http://localhost:8081/${this.loggedUser.avatar}`;
+      this.role = this.loggedUser.role;
     }else{
       this.avatar="../../../../assets/images/avatar/userempty.png";
     }

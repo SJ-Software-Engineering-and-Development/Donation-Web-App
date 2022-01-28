@@ -29,4 +29,7 @@ export class fundService {
     update(id: string, status: string): Observable<any> {
       return this.http.patch(`${API_URL}/${id}/${status}`,null);
     }
+
+   
+    
 }

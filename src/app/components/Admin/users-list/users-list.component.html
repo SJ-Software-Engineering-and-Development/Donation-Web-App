@@ -1,0 +1,57 @@
+<section class="shopping-cart">
+    <div class="cart-total">
+        <div class="row mt-4">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header text-center"><b>Donations</b></div>
+                <div class="card-body">
+                  <div class="row">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">FullName</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">Contact</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Last Login</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                        <tr
+                          *ngFor="let item of usersList | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: count
+                            }"
+                        >
+                         
+                          <td>{{item.fullName}}</td>
+                          <td>{{item.address}}</td>
+                          <td>{{item.contact}}</td>
+                          <td>{{item.login.email}}</td>
+                          <td>{{item.login.lastLogin | date: "short"}}</td>
+
+                        </tr>
+                      </tbody>
+                      <br />
+                      <pagination-controls
+                      previousLabel="Prev"
+                      nextLabel="Next"
+                      (pageChange)="onTableDataChange($event)"
+                    >
+                    </pagination-controls>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [routerLink]="['/admin-dashboard']">Go Back</button>
+        
+      </div>
+</section>
