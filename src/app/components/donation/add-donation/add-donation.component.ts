@@ -8,6 +8,8 @@ import { registrationService } from 'src/app/services/app/auth/registration.serv
 import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 import { TokenStorageService } from 'src/app/services/app/auth/token-storage.service';
 import Swal from 'sweetalert2';
+import { categoryService } from 'src/app/services/app/category.service';
+
 
 @Component({
   selector: 'app-add-donation',
@@ -29,11 +31,14 @@ export class AddDonationComponent implements OnInit {
   }
   
   user: any ={};
+  categary: any=[]
+
 
   constructor(
     private fb: FormBuilder,
     private tokenStorage:TokenStorageService,
     private fundService:fundService,
+    private categoryServide:categoryService,
     // private registrationService:registrationService,
     private _router: Router,
     private http: HttpClient
@@ -51,7 +56,25 @@ export class AddDonationComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.user =  JSON.parse(sessionStorage.getItem('auth-user') || '{}');
+    this.getAll();
   }
+
+  getAll():void{
+    this.categoryServide.getAll().subscribe({
+      next:(data:any) =>{
+        
+       this.categary = data;
+       
+      },
+      error:(err:any) =>{
+        console.log(err);
+      },
+      complete :()=>{
+        
+      }
+    })
+  }
+
 
   submit():void{
     this.fund.title = this.create_donationForm.value.title;

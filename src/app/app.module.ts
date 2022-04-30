@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TopnavbarComponent } from './components/user-common/topnavbar/topnavbar.component';
 import { FooterComponent } from './components/user-common/footer/footer.component';
 import { LoginComponent } from './components/user-common/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/app/auth/token-interceptor.service';
 import { SlidebarComponent } from './components/user-common/slidebar/slidebar.component';
@@ -65,7 +65,8 @@ import { UsersListComponent } from './components/Admin/users-list/users-list.com
     MatInputModule,
     MatFormFieldModule,
     SwiperModule, 
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

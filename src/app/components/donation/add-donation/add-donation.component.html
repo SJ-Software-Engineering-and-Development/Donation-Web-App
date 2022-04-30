@@ -97,7 +97,12 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Categary</label>
-              <input type="text" class="form-control" id="" placeholder="Categary" formControlName="category">
+              <!-- <input type="text" class="form-control" id="" placeholder="Categary" formControlName="category"> -->
+              <select name="my-select" class="form-control" formControlName="category">
+                <option [value]="item.id" *ngFor="let item of categary" >
+                    {{item.name}}
+                </option>
+            </select>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Description</label>

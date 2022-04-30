@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/app/auth/authentication.service';
 import { fundService } from 'src/app/services/app/fund.service';
 import Swal from 'sweetalert2';
+import { categoryService } from 'src/app/services/app/category.service';
 
 @Component({
   selector: 'app-my-fund',
@@ -24,6 +25,8 @@ export class MyFundComponent implements OnInit {
   page = 1;
   count = 0;
   tableSize = 5;
+  categary: any=[]
+ 
 
   create_donationForm:FormGroup
   fund = {
@@ -39,6 +42,7 @@ export class MyFundComponent implements OnInit {
     private fb:FormBuilder,
     private fundService: fundService,
     private router:Router,
+    private categoryServide:categoryService,
     private authService: AuthenticationService,
     private actRoute: ActivatedRoute,
   ) { }
@@ -57,7 +61,25 @@ export class MyFundComponent implements OnInit {
     this.userDetails();
     this.getMyFunds();
     this.createForm();
+    this.getAll();
   }
+
+  getAll():void{
+    this.categoryServide.getAll().subscribe({
+      next:(data:any) =>{
+        
+       this.categary = data;
+       
+      },
+      error:(err:any) =>{
+        console.log(err);
+      },
+      complete :()=>{
+        
+      }
+    })
+  }
+
 
   getMyFunds():void{
     this.fundService.getMyfunds(this.user.id).subscribe({
@@ -123,11 +145,9 @@ export class MyFundComponent implements OnInit {
           Swal.fire({  
             icon: 'error',  
             title: 'Oops...',  
-            text: "All fields are required !",  
+            text: "Target date must be greater than today or something is missing",  
             footer: '<a href>Why do I have this issue?</a>'  
           }) 
-          console.log(err);
-          
         },
 
         complete: () => {
